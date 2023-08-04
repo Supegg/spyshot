@@ -15,7 +15,7 @@ def merge(dir):
     # 需提前安装配置ffmpeg
     # list.txt按行记录，格式 'file xxxx.jpg'
     # -r 帧率，默认5秒采集一张，合成4fps的视频，一小时对应3分钟
-    os.system(f'ffmpeg -r 4 -f concat -i list.txt {dir}.mp4 -y')
+    os.system(f'ffmpeg -r 4 -f concat -i list.txt ..\{dir}.mp4 -y')
 
 
 if __name__ == '__main__':

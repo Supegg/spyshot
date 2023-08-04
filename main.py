@@ -2,7 +2,7 @@ import os
 import time
 from command_via_telnet import TelnetServer
 
-def main(server, interval = 10):
+def main(server, interval = 5):
     '''
     server: 交互服务
     interval: 采样间隔
@@ -12,8 +12,8 @@ def main(server, interval = 10):
     
     while True:
         try:
-            if server.command == 'stop':
-                print('stop service')
+            if server.command == 'kill':
+                print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), 'STOP Service')
                 return
             
             if time.time() - last > interval:

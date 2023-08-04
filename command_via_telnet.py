@@ -39,15 +39,18 @@ class TelnetServer(threading.Thread):
                     message += self.receive(client_socket)
                     if message.endswith('\n'):
                         message = message.strip()
-                        print("Message: ", message)
+                        print(f'{time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())} Message: {message}')
                         # self.send(client_socket, f"Received your message: {message}\n")
                         self.command = message
 
                         if message == "quit" or message == "exit":
+                            break
+
+                        if message == "kill":
                             return
                         
                         message=''
-
+                        
                 self.close(client_socket)
             except Exception as ex:
                 print(ex)
@@ -65,10 +68,13 @@ https://bard.google.com/
     while True:
         if server.command:
             print(f"Executing COMMAND: {server.command}")
+            if server.command == 'kill':
+                break
             server.command = ''
         else:
             time.sleep(1)
 
+    print("i'm killed, bye.")
 
 '''
 * 对于Telnet协议的不严谨理解：跑在TCP上的7位ASCII码数据流

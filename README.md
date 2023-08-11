@@ -10,6 +10,7 @@
   * `exit`或`quit` 退出当前会话
   * `kill` 停止服务
 * `python .\merge.py 20230804` 生成当日视频
+  * 通过配置main.py中截屏周期 和 merge.py中合成视频fps 参数，调整效果
 
 ## 后续更新
 

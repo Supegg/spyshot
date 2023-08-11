@@ -2,7 +2,7 @@ import os
 import time
 from command_via_telnet import TelnetServer
 
-def main(server, interval = 5):
+def main(server, interval = 1):
     '''
     server: 交互服务
     interval: 采样间隔
